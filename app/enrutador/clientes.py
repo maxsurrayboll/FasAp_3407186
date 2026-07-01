@@ -2,19 +2,17 @@ from fastapi import APIRouter
 from app.modelos.clientes import Cliente, ClienteCrear, ClienteEditar
 from ..listas_app import lista_clientes
 
-# por explicar la proxima clase
 # aca utilizaremos la sesion de bd
 
-# crear manager de las api router, rutas de la api
 ruta_clientes = APIRouter()
+#listar_clientes: list[cliente] = []
 
 
-@ruta_clientes.get("/clientes")
+@ruta_clientes.get("/clientes" , response_model=list[Cliente])
 async def listar_clientes():
-    # Creacion de sms mas adecuado al usuario
     return {"Clientes": lista_clientes}
 
-
+# endpoint, para obtener o listar todos los clientes
 @ruta_clientes.get("/clientes/{id}")
 async def listar_cliente(id: int):
     # retornar mensajes claros al usuario, si no existe el cliente
@@ -23,7 +21,7 @@ async def listar_cliente(id: int):
         if cliente.id == id:
             return cliente
 
-
+#endpoint, para obtener o listar todos los clientes
 @ruta_clientes.post("/clientes", response_model=Cliente)
 async def crear_clientes(datos_cliente: ClienteCrear):
     cliente_val = Cliente.model_validate(datos_cliente.model_dump())
