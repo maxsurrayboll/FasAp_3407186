@@ -1,8 +1,11 @@
-# lista de clientes en BD
-from .modelos.clientes import Cliente
-from .modelos.factura import Factura
-from .modelos.transacciones import Transacciones
+from app.modelos.clientes import *
+from app.modelos.transacciones import *
+from app.modelos.factura import *
 
-lista_clientes: list[Cliente] = []
-lista_facturas: list[Factura] = []
-lista_transacciones: list[Transacciones] = []
+# ===================================
+# LISTAS SIMULANDO BASE DE DATOS
+# ===================================
+
+listas_clientes: list[Cliente] = []
+listas_facturas: list[Factura] = []
+listas_transacciones: list[Transaccion] = []

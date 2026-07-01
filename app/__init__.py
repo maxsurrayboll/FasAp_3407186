@@ -4,4 +4,4 @@ app = FastAPI()
 
 from app.enrutador import clientes
 
-app.include_router(clientes.ruta_clientes)
+app.include_router(clientes.router)
