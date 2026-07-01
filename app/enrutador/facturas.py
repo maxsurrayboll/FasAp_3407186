@@ -52,6 +52,7 @@ async def crear_factura(
         )
 
     factura_val = Factura.model_validate(datos_factura.model_dump())
+    factura_val.cliente_id = cliente_id
 
     mi_sesion.add(factura_val)
     mi_sesion.commit()

@@ -19,3 +19,5 @@ class EditarFactura(SQLModel):
 
 class Factura(FacturaBase, table=True):
     id: int | None = Field(default=None, primary_key=True)
+    Cliente_id: int | None = None
+    
